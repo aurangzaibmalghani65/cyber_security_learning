@@ -1,0 +1,26 @@
+1. File: internet-isp.mdmd# Internet & ISP
+- ISP (Internet Service Provider) humein internet deta hai.
+- Mera connection: Mobile Data / PTCL
+- IP kaise milta hai: ISP humein dynamic IP deta hai.
+- Observation: ping 8.8.8.8 se pata chala internet connected hai.2. File: dns.mdmd# DNS - Domain Name System
+- DNS kaam: google.com jaise naam ko 142.250.x.x IP mein badalna.
+- Command: `nslookup google.com`
+- Observation: Mere case mein `DNS request timed out` aaya, Server: fe80::1
+- Is se ye prove hua: DNS server down tha, is liye naam se website nahi khul rahi thi lekin IP se ping ho raha tha.
+- Fix: DNS ko 8.8.8.8 aur 8.8.4.4 pe change kiya.3. File: url-browser.mdmd# URL & Browser
+- URL ke parts: https:// (protocol) + google.com (domain) + /search (path)
+- Browser kya karta hai: URL se DNS puchta hai, phir TCP connection, phir HTTP request.4. File: http-https.mdmd# HTTP vs HTTPS
+- HTTP: Data bina lock ke jata hai, secure nahi.
+- HTTPS: Data encrypt hota hai, secure hai.
+- Port: HTTP 80, HTTPS 4435. File: ping.mdmd# Ping
+- Command: `ping 8.8.8.8`
+- Iska matlab: ICMP Echo Request bhejna aur Reply lena.
+- Result:
+    - Sent=4, Received=4, Lost=0% (0% loss = connection OK)
+    - time=47ms to 302ms, Average=170ms (time = latency, jitna kam utna fast)
+    - TTL=117 (Time To Live, Google ne 128 bheja, raste mein 11 kam hue)
+- Ye kya prove karta hai: Internet laga hua hai ya nahi aur kitna fast hai.6. File: tracert.mdmd# Tracert / Traceroute
+- Command: `tracert 8.8.8.8` (Windows) ya `traceroute 8.8.8.8` (Linux)
+- Kaam: Raste mein kitne routers / hops aate hain wo dikhata hai.
+- Har hop pe TTL 1 kam hota hai.
+- Prove: Packet kahan tak ja raha hai aur kahan fail ho raha hai.
